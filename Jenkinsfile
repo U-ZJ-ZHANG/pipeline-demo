@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying to Production...'
-                
+                // Add steps to run only if the pipeline fails (e.g., send failure notification)
             }
         }
     }
