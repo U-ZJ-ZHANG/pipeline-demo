@@ -46,18 +46,20 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'This will always run'
-            // Add steps to run regardless of build result (e.g., clean-up)
-        }
+     post {
         success {
             echo 'Pipeline succeeded!'
-            // Add steps to run only if the pipeline succeeds (e.g., send success notification)
+            mail bcc: '',
+                body: "Build Successful! Check Jenkins for details.",
+                subject: "Jenkins Pipeline Success: ${currentBuild.fullDisplayName}",
+                to: 'yamamotorgb@gmail.com'
         }
         failure {
             echo 'Pipeline failed!'
-            // Add steps to run only if the pipeline fails (e.g., send failure notification)
+            mail bcc: '',
+                body: "Build Failed! Check Jenkins for details.",
+                subject: "Jenkins Pipeline Failure: ${currentBuild.fullDisplayName}",
+                to: 'yamamotorgb@gmail.com'
         }
     }
 }
