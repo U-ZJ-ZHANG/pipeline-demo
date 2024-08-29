@@ -5,43 +5,44 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Add build steps here (e.g., using Maven or Gradle)
+                // build the code using a build automation tool to compile and package (e.g. Maven)
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 echo 'Running Unit and Integration Tests...'
-                // Add testing steps here (e.g., using JUnit or another testing framework)
+                // unit and Integration Tests - run unit tests to ensure the code functions as expected and run integration tests to ensure the different components of the 
+                // application work together as expected. (e.g. JUnit )
             }
         }
         stage('Code Analysis') {
             steps {
                 echo 'Analyzing Code...'
-                // Add code analysis steps here (e.g., using SonarQube)
+                // integrate a code analysis tool to analyse the code and ensure it meets industry standards. (e.g. SonarQube)
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Running Security Scan...'
-                // Add security scanning steps here (e.g., using OWASP Dependency-Check)
+                // perform a security scan on the code using a tool to identify any vulnerabilities. (e.g. OWASP Dependency-Check)
             }
         }
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to Staging Environment...'
-                // Add deployment steps here (e.g., deploying to AWS EC2 or another staging environment)
+                // deploy the application to a staging serve (e.g.,AWS EC2 instance)
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 echo 'Running Integration Tests on Staging...'
-                // Add integration test steps for the staging environment
+                // run integration tests on the staging environment to ensure the application functions as expected in a production-like environment.
             }
         }
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying to Production...'
-                 // Add steps to run only if the pipeline fails (e.g., send failure notification)
+                 // deploy the application to a production serve (e.g.,AWS EC2 instance)
             }
         }
     }
